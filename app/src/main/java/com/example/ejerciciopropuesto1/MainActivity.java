@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected EditText cajaRespuesta1;
     protected Button boton1;
     protected TextView texto2;
+
+    protected ImageView ima1;
 
     protected String contenidoCaja1= "";
 
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
             cajaRespuesta1 = (EditText) findViewById(R.id.cajaRespuesta_main);
             boton1 = (Button) findViewById(R.id.boton1_main);
             texto2 = (TextView) findViewById(R.id.textViewRespuesta_main);
+            ima1 = (ImageView) findViewById(R.id.img1_main);
+
+
 
             boton1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -49,9 +55,12 @@ public class MainActivity extends AppCompatActivity {
                         if (contenidoCaja1.equals("blanco")){
 
                             texto2.setText("Respuesta Correcta");
+                            ima1.setImageResource(R.drawable.correcto);
+                            boton1.setEnabled(false);
                         }
                         else{
                             texto2.setText("Respuesta Incorrecta");
+                            ima1.setImageResource(R.drawable.error);
                         }
                     }
 
